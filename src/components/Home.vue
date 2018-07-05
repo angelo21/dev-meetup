@@ -21,10 +21,11 @@
     </v-layout>
     <v-layout row wrap class="mt-2">
       <v-flex xs12>
-        <v-carousel>
+        <v-carousel style="cursor: pointer">
           <v-carousel-item
             v-for="meetup in meetups"
             :key="meetup.id"
+            @click.native="onLoadMeetup(meetup.id)"
             :src="meetup.imageUrl">
           <div class="title">
             {{ meetup.title }}
@@ -47,11 +48,16 @@
     data() {
       return {
         meetups: [
-          {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", id: "'shaohgalg", title: "Meetup in New York"
+          {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", id: "shaohgalg", title: "Meetup in New York"
           },
           {imageUrl: "https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg", id: "lshgohsob", title: "Meetup in Paris"
           },
         ]
+      }
+    },
+    methods: {
+      onLoadMeetup(id) {
+        this.$router.push(`/meetups/${id}`)
       }
     }
   }
