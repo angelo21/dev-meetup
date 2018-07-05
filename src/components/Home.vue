@@ -45,14 +45,9 @@
 
 <script>
   export default {
-    data() {
-      return {
-        meetups: [
-          {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", id: "shaohgalg", title: "Meetup in New York"
-          },
-          {imageUrl: "https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg", id: "lshgohsob", title: "Meetup in Paris"
-          },
-        ]
+    computed: {
+      meetups() {
+        return this.$store.getters.featuredMeetups;
       }
     },
     methods: {
