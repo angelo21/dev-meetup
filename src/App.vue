@@ -3,7 +3,7 @@
     <v-toolbar dark class="red darken-1">
       <v-toolbar-side-icon 
         @click="sideNav = !sideNav"
-        class="hidden-sm-and-up">
+        class="hidden-md-and-up">
       </v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link 
@@ -12,7 +12,7 @@
           style="cursor: pointer">DevMeetup</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only">
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn 
           flat 
           v-for="item of menuItems" 
