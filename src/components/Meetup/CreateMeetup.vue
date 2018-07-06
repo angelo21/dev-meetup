@@ -92,12 +92,13 @@
               >
                 <v-text-field
                   slot="activator"
-                  v-model="date"
+                  v-model="dateDisplay"
                   label="Select Date"
                   prepend-icon="event"
                   readonly
                 ></v-text-field>
                 <v-date-picker 
+                  @input="formatDate"
                   v-model="date">
                   <v-spacer></v-spacer>
                 </v-date-picker>
@@ -109,7 +110,6 @@
                 ref="menu"
                 :close-on-content-click="false"
                 :nudge-right="40"
-                
                 lazy
                 transition="scale-transition"
                 offset-y
@@ -124,6 +124,7 @@
                   readonly
                 ></v-text-field>
                 <v-time-picker 
+                  @input="formatTime"
                   v-model="time" >
                   <v-spacer></v-spacer>
                 </v-time-picker>
@@ -132,7 +133,6 @@
             <v-spacer></v-spacer>
           </v-layout>
           <!--END DATE AND TIME-->
-
           <v-layout row>
             <v-flex xs12 class="text-xs-center">
               <v-btn 
@@ -158,6 +158,7 @@ export default {
       imageUrl: "",
       description: "",
       date: null,
+      dateFormatted: null,
       time: null,
     };
   },
@@ -167,9 +168,17 @@ export default {
         this.title !== "" &&
         this.location !== "" &&
         this.imageUrl !== "" &&
-        this.description !== ""
+        this.description !== "" &&
+        this.date !== null &&
+        this.time !== null
+
       );
     },
+    dateDisplay: {
+      get () {
+        return this.dateFormatted;
+      }
+    }
   },
   methods: {
     onCreateMeetup() {
@@ -181,10 +190,24 @@ export default {
         location: this.location,
         imageUrl: this.imageUrl,
         description: this.description,
-        date: this.date
+        dateFormatted: this.dateFormatted,
+        time: this.time,
       };
       this.$store.dispatch("createMeetup", meetupData);
       this.$router.push("/meetups");
+    },
+    formatDate() {
+      const date = this.date.split("-");
+      const [year, month, day] = date;
+      const formattedDate = `${month}-${day}-${year}`;
+      this.dateFormatted = formattedDate;
+    },
+    formatTime() {
+      let time = this.time;
+      if (time === "00:00") {
+        time = "12:00"
+      }
+      this.time = time;
     }
   },
 };

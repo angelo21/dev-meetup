@@ -22,7 +22,8 @@
                     <h3 class="white--text mb-0">
                       {{ meetup.title }}
                     </h3>
-                    <div>{{ meetup.date }}</div>
+                    <div>{{ meetup.dateFormatted }}</div>
+                    <div>{{ meetup.time }}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>

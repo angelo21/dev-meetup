@@ -10,12 +10,16 @@ export const store = new Vuex.Store({
       {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", 
       id: "shaohgalg", 
       title: "Meetup in New York",
-      date: "2018-07-18"
+      dateFormatted: "7-18-2018",
+      location: "New York",
+      description: "It's New York"
       },
       {imageUrl: "https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg", 
       id: "lshgohsob", 
       title: "Meetup in Paris",
-      date: "2018-7-19"
+      dateFormatted: "7-19-2",
+      location: "Paris",
+      description: "It's Paris"
       },
     ],
     user: {
@@ -35,7 +39,8 @@ export const store = new Vuex.Store({
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        date: payload.date,
+        dateFormatted: payload.dateFormatted,
+        time: payload.time,
         id: "shenpgnghw"
       }
       //Reach out to firebase for storage
