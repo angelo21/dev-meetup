@@ -84,7 +84,6 @@
                 ref="menu"
                 :close-on-content-click="false"
                 :nudge-right="40"
-                :return-value.sync="date"
                 lazy
                 transition="scale-transition"
                 offset-y
@@ -100,18 +99,17 @@
                 ></v-text-field>
                 <v-date-picker 
                   v-model="date">
+                  <v-spacer></v-spacer>
                 </v-date-picker>
-                <p>{{ date }}</p>
               </v-menu>
             </v-flex>
-            <v-spacer></v-spacer>
 
             <v-flex xs12 sm6>
               <v-menu
                 ref="menu"
                 :close-on-content-click="false"
                 :nudge-right="40"
-                :return-value.sync="date"
+                
                 lazy
                 transition="scale-transition"
                 offset-y
@@ -159,8 +157,8 @@ export default {
       location: "",
       imageUrl: "",
       description: "",
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString()
+      date: null,
+      time: null,
     };
   },
   computed: {
@@ -171,7 +169,7 @@ export default {
         this.imageUrl !== "" &&
         this.description !== ""
       );
-    }
+    },
   },
   methods: {
     onCreateMeetup() {
