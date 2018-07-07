@@ -119,7 +119,7 @@
               >
                 <v-text-field
                   slot="activator"
-                  v-model="time"
+                  v-model="timeDisplay"
                   label="Select Time"
                   prepend-icon="event"
                   readonly
@@ -162,6 +162,7 @@ export default {
       date: null,
       dateFormatted: null,
       time: null,
+      timeFormatted: null,
     };
   },
   computed: {
@@ -180,6 +181,11 @@ export default {
       get () {
         return this.dateFormatted;
       }
+    },
+    timeDisplay: {
+      get () {
+        return this.timeFormatted;
+      }
     }
   },
   methods: {
@@ -193,7 +199,7 @@ export default {
         imageUrl: this.imageUrl,
         description: this.description,
         dateFormatted: this.dateFormatted,
-        time: this.time,
+        timeFormatted: this.timeFormatted,
       };
       this.$store.dispatch("createMeetup", meetupData);
       this.$router.push("/meetups");
@@ -206,10 +212,17 @@ export default {
     },
     formatTime() {
       let time = this.time;
+      const numCheck = time.split(":");
+      let numConvert = parseInt(numCheck[0]);
       if (time === "00:00") {
-        time = "12:00"
+        time = `12:00 AM`
+      } else if (numConvert <= 11) {
+        time = `${numConvert}:${numCheck[1]} AM`
+      } else {
+        numConvert -= 12;
+        time = `${numConvert}:${numCheck[1]} PM`
       }
-      this.time = time;
+      this.timeFormatted = time;
     }
   },
 };

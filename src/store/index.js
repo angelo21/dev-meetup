@@ -40,7 +40,7 @@ export const store = new Vuex.Store({
         imageUrl: payload.imageUrl,
         description: payload.description,
         dateFormatted: payload.dateFormatted,
-        time: payload.time,
+        timeFormatted: payload.timeFormatted,
         id: "shenpgnghw"
       }
       //Reach out to firebase for storage

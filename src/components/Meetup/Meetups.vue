@@ -23,7 +23,7 @@
                       {{ meetup.title }}
                     </h3>
                     <div>{{ meetup.dateFormatted }}</div>
-                    <div>{{ meetup.time }}</div>
+                    <div>{{ meetup.timeFormatted }}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>
