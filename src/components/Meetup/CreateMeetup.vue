@@ -98,6 +98,7 @@
                   readonly
                 ></v-text-field>
                 <v-date-picker 
+                  header-color="red darken1"
                   @input="formatDate"
                   v-model="date">
                   <v-spacer></v-spacer>
@@ -124,8 +125,9 @@
                   readonly
                 ></v-text-field>
                 <v-time-picker 
+                  header-color="red darken1"
                   @input="formatTime"
-                  v-model="time" >
+                  v-model="time">
                   <v-spacer></v-spacer>
                 </v-time-picker>
               </v-menu>
