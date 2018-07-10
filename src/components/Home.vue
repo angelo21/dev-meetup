@@ -25,8 +25,8 @@
         <v-progress-circular
           indeterminate
           color="red darken1"
-          width="7"
-          size="70"
+          :width= "7"
+          :size= "70"
           v-if="loading">
         </v-progress-circular>
       </v-flex>
