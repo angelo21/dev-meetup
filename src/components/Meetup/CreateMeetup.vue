@@ -91,6 +91,7 @@
                 min-width="290px"
               >
                 <v-text-field
+                  color="red darken1"
                   slot="activator"
                   v-model="dateDisplay"
                   label="Select Date"
@@ -118,6 +119,7 @@
                 min-width="290px"
               >
                 <v-text-field
+                  color="red darken1"
                   slot="activator"
                   v-model="timeDisplay"
                   label="Select Time"
