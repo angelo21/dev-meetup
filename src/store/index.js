@@ -58,6 +58,7 @@ export const store = new Vuex.Store({
           meetups.push({
             id: key,
             title: obj[key].title,
+            location: obj[key].location,
             description: obj[key].description,
             imageUrl: obj[key].imageUrl,
             dateFormatted: obj[key].dateFormatted,
