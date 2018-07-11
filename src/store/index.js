@@ -82,19 +82,18 @@ export const store = new Vuex.Store({
         timeFormatted: payload.timeFormatted,
         creatorId: getters.user.id,
       }
-      firebase.database().ref('meetups').push(meetup)
-      .then((data) => {
-        const key = data.key
-        commit('createMeetup', {
+      firebase.database().ref("meetups").push(meetup)
+      .then(data => {
+        const key = data.key;
+        commit("createMeetup", {
           ...meetup,
           id: key
         })
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error)
       })
-    // Reach out to firebase and store it
-  },
+    }, 
   signUserUp ({commit}, payload) {
     commit('setLoading', true)
     commit('clearError')
