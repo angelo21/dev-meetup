@@ -81,6 +81,7 @@ export const store = new Vuex.Store({
         dateFormatted: payload.dateFormatted,
         timeFormatted: payload.timeFormatted,
         creatorId: getters.user.id,
+        imageUrl: "meetups/-LH4fC0gWWuF5SZqB6nn.jpg",
       }
       let imageUrl;
       let key;
