@@ -105,6 +105,7 @@ export const store = new Vuex.Store({
           imageUrl: imageUrl,
           id: key
         })
+        console.log(meetup)
       })
       .catch(error => console.log(error))
     },
