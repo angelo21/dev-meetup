@@ -29,7 +29,9 @@
             height="400px">
           </v-card-media>
           <v-card-text>
-            <div class="info--text">{{ meetup.dateFormatted }}, {{ meetup.timeFormatted }} - {{ meetup.location }}</div>
+            <div 
+              class="info--text">{{ meetup.dateFormatted }}, {{ meetup.timeFormatted }} - {{ meetup.location }}
+            </div>
             <div>{{ meetup.description }}</div>
           </v-card-text>
           <v-card-actions>
@@ -44,6 +46,7 @@
 
 <script>
   import AppEditMeetup from "./Edit/EditMeetupDetails.vue";
+  
 
   export default {
     props: ["id"],
