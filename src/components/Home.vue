@@ -52,7 +52,7 @@
     </v-layout>
     
     <div 
-      v-else
+      v-else-if="!loading && !featuredAvailable"
       class="text-xs-center">
       <h2 class="red--text darken1">Organize a Meetup to Get Started</h2>
     </div>
