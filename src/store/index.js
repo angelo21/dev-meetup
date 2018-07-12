@@ -8,20 +8,20 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", 
-      id: "shaohgalg", 
-      title: "Meetup in New York",
-      dateFormatted: "7-18-2018",
-      location: "New York",
-      description: "It's New York"
-      },
-      {imageUrl: "https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg", 
-      id: "lshgohsob", 
-      title: "Meetup in Paris",
-      dateFormatted: "7-19-2",
-      location: "Paris",
-      description: "It's Paris"
-      },
+      // {imageUrl: "https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200", 
+      // id: "shaohgalg", 
+      // title: "Meetup in New York",
+      // dateFormatted: "7-18-2018",
+      // location: "New York",
+      // description: "It's New York"
+      // },
+      // {imageUrl: "https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg", 
+      // id: "lshgohsob", 
+      // title: "Meetup in Paris",
+      // dateFormatted: "7-19-2",
+      // location: "Paris",
+      // description: "It's Paris"
+      // },
     ],
     user: null,
     loading: false,
@@ -274,6 +274,7 @@ export const store = new Vuex.Store({
       });
     },
     featuredMeetups(state, getters) {
+      const length = state.loadedMeetups.length;
       return getters.loadedMeetups.slice(0, 5)
     },
     loadedMeetup(state) {

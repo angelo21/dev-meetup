@@ -1,13 +1,13 @@
 
 <template>
   <v-container>
-    <v-layout row wrap class="mb-2">
+    <v-layout row wrap class="mb-5">
       <v-flex xs12 sm6 class="text-xs-center text-sm-right" >
         <v-btn 
           large 
           router 
           to="/meetups"
-          class="blue lighten-2" dark>Explore Meetups
+          class="red darken1" dark>Explore Meetups
         </v-btn>
       </v-flex>
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
@@ -15,7 +15,7 @@
           large 
           router 
           to="/meetup/new"
-          class="blue lighten-2" dark>Organize Meetup
+          class="red darken 1" dark>Organize Meetup
         </v-btn>
       </v-flex>
     </v-layout>
@@ -32,9 +32,12 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap class="mt-2" v-if="!loading">
-      <v-flex xs12>
-        <v-carousel style="cursor: pointer">
+    <v-layout 
+      row wrap 
+      class="mt-2" 
+      v-if="!loading && featuredAvailable > 0">
+      <v-flex xs12 style="height: 70vh">
+        <v-carousel style="cursor: pointer; height: 100%">
           <v-carousel-item
             v-for="meetup in meetups"
             :key="meetup.id"
@@ -47,12 +50,12 @@
         </v-carousel>
       </v-flex>
     </v-layout>
-
-    <v-layout row wrap class="mt-2">
-      <v-flex xs12 class="text-xs-center">
-        <p>Join our awesome meetups!</p>
-      </v-flex>
-    </v-layout>
+    
+    <div 
+      v-else
+      class="text-xs-center">
+      <h2 class="red--text darken1">Organize a Meetup to Get Started</h2>
+    </div>
   </v-container>
 </template>
 
@@ -61,6 +64,9 @@
     computed: {
       meetups() {
         return this.$store.getters.featuredMeetups;
+      },
+      featuredAvailable() {
+        return this.$store.getters.featuredMeetups.length;
       },
       loading() {
         return this.$store.getters.loading
