@@ -30,13 +30,15 @@
           </v-card-media>
           <v-card-text>
             <div 
-              class="info--text">{{ meetup.dateFormatted }}, {{ meetup.timeFormatted }} - {{ meetup.location }}
+              class="red--text darken1">{{ meetup.dateFormatted }}, {{ meetup.timeFormatted }} - {{ meetup.location }}
             </div>
-            <div>{{ meetup.description }}</div>
+            <div
+              class="red--text darken1">{{ meetup.description }}
+            </div>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn class="red darken-5" dark>Register</v-btn>
+            <app-register :meetupId="id"></app-register>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -46,7 +48,7 @@
 
 <script>
   import AppEditMeetup from "./Edit/EditMeetupDetails.vue";
-  
+  import AppRegister from "./Registration/RegisterDialog.vue";
 
   export default {
     props: ["id"],
@@ -69,6 +71,7 @@
     },
     components: {
       AppEditMeetup,
+      AppRegister,
     }
   }
 </script>
